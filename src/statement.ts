@@ -1,4 +1,5 @@
 import { MovieCode } from "./Movie";
+import {StatementFormat} from './Format'
 
 import * as Processor from './processors'
 
@@ -8,10 +9,11 @@ const totalProcessors: Record<MovieCode, Processor.TotalProcessor> = {
   [MovieCode.REGULAR]: Processor.regularProcessor
 }
 
-export const statement = (customer: any, movies: any): string => {
+export const statement = (format: StatementFormat, customer: any, movies: any): string => {
   let totalAmount = 0;
   let frequentRenterPoints = 0;
-  let result = `Rental Record for ${customer.name}\n`;
+  let result = `<h1>Rental Record for <em>${customer.name}</em></h1>\n`;
+  result += `<ul>\n`
   for (let r of customer.rentals) {
     let movie = movies[r.movieID];
     let thisAmount = 0;
@@ -21,11 +23,13 @@ export const statement = (customer: any, movies: any): string => {
     frequentRenterPoints++;
     if (movie.code === MovieCode.NEW && r.days > 2) frequentRenterPoints++;
 
-    result += `\t${movie.title}\t${thisAmount}\n`;
+    result += `\t<li>${movie.title} - ${thisAmount}</li>\n`;
     totalAmount += thisAmount;
   }
-  result += `Amount owed is ${totalAmount}\n`;
-  result += `You earned ${frequentRenterPoints} frequent renter points\n`;
+  result += `</ul>\n`
+  result += `<p>Amount owed is <em>${totalAmount}</em><p>\n`;
+  result += `<p>You earned <em>${frequentRenterPoints}</em> frequent renter points<p>\n`;
 
-  return result;
+  return (format == StatementFormat.HTML ? result : result.replace(/<[^>]+>/g, ''));
 };
+ 
