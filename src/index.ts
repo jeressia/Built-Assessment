@@ -19,6 +19,11 @@ program
 program
   .command("statement")
   .description("Prints out a plain-text statement for the customer")
-  .action(() => console.log(statement(customer, movies)));
+  .action(() => console.log(statement(customer, movies),'text-statement'));
+
+program
+  .command("html-statement")
+  .description("Prints out a html-text statement for the customer")
+  .action(() => console.log(statement(customer, movies),'html-statement'));
 
 program.parse(process.argv);
