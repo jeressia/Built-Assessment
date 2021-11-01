@@ -64,7 +64,7 @@ This project took me about 3 hours to complete.
 
 ## Running my application
 
-1. Clone this repo using git clone _.
-2. Once this repo is on your machine, run npm install.
+1. Clone this repo using git clone https://github.com/jeressia/Built-Assessment.git.
+2. Once this repo is on your machine, 'run npm install'.
 3. To see the statement in plain text, 'run npm statement'.
 4. To see the statement in html, 'run npm html-statement'.
