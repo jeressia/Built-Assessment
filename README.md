@@ -55,3 +55,16 @@ You earned 4 frequent renter points
 3. Also include any additional instructions / requirements for running your solution.
 4. Finally, please feel free - though you're not required - to provide some "documentation" to justify any tradeoffs you might have made when writing the code and what implications those tradeoffs may have in the future - especially for the second "task" above.
 # Built-Assessment
+
+An application that calculates the total cost of movies by genre and the frequent user points for customers using TypeScript.
+
+## Estimate
+
+This project took me about 3 hours to complete.
+
+## Running my application
+
+1. Clone this repo using git clone _.
+2. Once this repo is on your machine, run npm install.
+3. To see the statement in plain text, 'run npm statement'.
+4. To see the statement in html, 'run npm html-statement'.
